@@ -22,7 +22,7 @@ public class indexAjax extends  HttpServlet {
 		int h =0;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 					
-			h++;
+		h++;
 		ArrayList <String> a = new ArrayList<String>();
 		Calendar calendario = Calendar.getInstance();
 		int hrs_act =calendario.get(Calendar.HOUR_OF_DAY);
@@ -44,6 +44,10 @@ public class indexAjax extends  HttpServlet {
 		} catch (SQLException ex) {
 			Logger.getLogger(indexAjax.class.getName()).log(Level.SEVERE, null, ex);
 		}
+		
+		String msj =" INSERT INTO tirada(hora,carta_id,jugador_idjugador) value("+hora+","+idcart+","+id+")";
+		SendRequest sr = new SendRequest(1234,"localhost",msj);
+		sr.send();
 		
 		if(h<=50){
 			response.setContentType("text/plain");

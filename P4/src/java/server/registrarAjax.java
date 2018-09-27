@@ -29,6 +29,10 @@ public class registrarAjax extends  HttpServlet {
 		} catch (SQLException ex) {
 			Logger.getLogger(registrarAjax.class.getName()).log(Level.SEVERE, null, ex);
 		}
+		
+		String msj = "INSERT INTO jugador(idjugador,ip,nombre) value("+id+",127.0.0.1,"+user+")";
+		SendRequest sr = new SendRequest(1234,"localhost",msj);
+		sr.send();
 			
 		response.setContentType("text/plain");
 		response.getWriter().write(id);
