@@ -19,8 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 public class indexAjax extends  HttpServlet {
     private static final long serialVersionUID = 1L;
 
+		int h =0;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 					
+			h++;
 		ArrayList <String> a = new ArrayList<String>();
 		Calendar calendario = Calendar.getInstance();
 		int hrs_act =calendario.get(Calendar.HOUR_OF_DAY);
@@ -43,9 +45,15 @@ public class indexAjax extends  HttpServlet {
 			Logger.getLogger(indexAjax.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
-		response.setContentType("text/plain");
-		response.getWriter().write("<img src='"+a.get(1)+"'>");
-
+		if(h<=50){
+			response.setContentType("text/plain");
+			response.getWriter().write("<img src='"+a.get(1)+"'>"+h);
+		}
+		else{
+			h=0;
+			response.setContentType("text/plain");
+			response.getWriter().write("popo");
+		}
     }
     
 }

@@ -22,8 +22,13 @@ $(document).ready(function(){
             type: "get",
             url: "indexAjax", 
             data: $("#registro").serialize(),
-            success: function(msg){    
-               $("#img").html(msg);
+            success: function(msg){   
+                if(msg==="popo"){
+                    alert("juego acabado") ;
+                    location.reload();
+                }
+                else  
+                    $("#img").html(msg);
             }
         });
     });

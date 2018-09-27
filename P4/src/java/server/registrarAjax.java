@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/registrarAjax")
 public class registrarAjax extends  HttpServlet {
     private static final long serialVersionUID = 1L;
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-					
+		
+			
 		String id = request.getParameter("id");
 		String user = request.getParameter("user");
 		
