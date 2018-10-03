@@ -37,7 +37,7 @@ public class ClientRMI {
 			stub.dataRecv(iduser,ip, user);
 			
 		} catch (Exception e) {
-			System.err.println("Client exception: " + e.toString());
+			System.err.println("Client exception ClientRMI.registrarJugador: " + e.toString());
 			e.printStackTrace();
 		}
 	}
@@ -54,7 +54,7 @@ public class ClientRMI {
 			stub.dataRecv(hora,idcart, iduser);
 			
 		} catch (Exception e) {
-			System.err.println("Client exception: " + e.toString());
+			System.err.println("Client exception ClientRMI.registrarTirada: " + e.toString());
 			e.printStackTrace();
 		}
     }

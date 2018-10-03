@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import SyncClock.Reloj;
 
 @WebServlet("/indexAjax")
 public class indexAjax extends  HttpServlet {
@@ -24,11 +25,15 @@ public class indexAjax extends  HttpServlet {
 					
 		h++;
 		ArrayList <String> a = new ArrayList<String>();
-		Calendar calendario = Calendar.getInstance();
-		int hrs_act =calendario.get(Calendar.HOUR_OF_DAY);
-		int min_act = calendario.get(Calendar.MINUTE);
-		int seg_act = calendario.get(Calendar.SECOND);
-		String hora = Integer.toString(hrs_act)+":"+Integer.toString(min_act)+":"+Integer.toString(seg_act);
+		//Calendar calendario = Calendar.getInstance();
+		//int hrs_act =calendario.get(Calendar.HOUR_OF_DAY);
+		//int min_act = calendario.get(Calendar.MINUTE);
+		//int seg_act = calendario.get(Calendar.SECOND);
+		
+		LocalClockClientRMI lc = new LocalClockClientRMI("localhost");
+		Reloj r = lc.getLocalClock();
+		
+		String hora = r.getHrs()+":"+r.getMin()+":"+r.getSeg();
 		String id = request.getParameter("id");
 		
 		try {	
