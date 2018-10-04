@@ -30,7 +30,7 @@ public class ClientRMI {
 		try {
 			System.out.println("------------"+host);
 
-			Registry registry = LocateRegistry.getRegistry(host);	
+			Registry registry = LocateRegistry.getRegistry(host,1099);	
 
 			RecvInterface stub = (RecvInterface) registry.lookup("RecvInterface");
 

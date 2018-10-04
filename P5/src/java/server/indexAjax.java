@@ -50,8 +50,8 @@ public class indexAjax extends  HttpServlet {
 			Logger.getLogger(indexAjax.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
-		//ClientRMI crmi = new ClientRMI("localhost",hora,idcart, id);
-		//crmi.registrarTirada();
+		ClientRMI crmi = new ClientRMI("192.168.43.53",hora,idcart, id);
+		crmi.registrarTirada();
 			
 		if(h<=50){
 			response.setContentType("text/plain");

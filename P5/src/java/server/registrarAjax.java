@@ -30,8 +30,8 @@ public class registrarAjax extends  HttpServlet {
 			Logger.getLogger(registrarAjax.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
-		//ClientRMI crmi = new ClientRMI("localhost",id, "192.168.0.1", user);
-		//crmi.registrarJugador();
+		ClientRMI crmi = new ClientRMI("192.168.43.53",id, "192.168.0.1", user);
+		crmi.registrarJugador();
 			
 		response.setContentType("text/plain");
 		response.getWriter().write(id);

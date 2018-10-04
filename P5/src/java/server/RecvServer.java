@@ -43,6 +43,7 @@ public class RecvServer implements RecvInterface {
 
 		try {
 			System.setProperty("java.rmi.server.codebase","http://8.25.100.18/clases/"); //file:///f:\\redes2\\RMI\\RMI2
+			System.setProperty("java.rmi.server.hostname", "192.168.43.21");
 			RecvServer obj = new RecvServer();
 			RecvInterface stub = (RecvInterface) UnicastRemoteObject.exportObject(obj, 0);
 

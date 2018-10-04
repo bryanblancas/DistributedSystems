@@ -6,7 +6,6 @@ import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.SQLException;
 
 public class LocalClockServer implements LocalClock{
 	
@@ -36,7 +35,7 @@ public class LocalClockServer implements LocalClock{
 	@Override
 	public  void init(int hrs, int min, int seg, int clock) throws RemoteException{
 		try {
-			java.rmi.registry.LocateRegistry.createRegistry(1100);  //puerto default del rmiregistry
+			java.rmi.registry.LocateRegistry.createRegistry(1099);  //puerto default del rmiregistry
 			System.out.println("LocalClockServerRMI registry ready.");
 		} catch (RemoteException e) {
 			System.out.println("Exception starting LocalClockServerRMI registry:");
