@@ -39,7 +39,7 @@ public class RecvServer implements RecvInterface {
 		} catch (Exception e) {
 			System.out.println("Exception starting RMI registry:");
 			e.printStackTrace();
-		 }
+		}
 
 		try {
 			System.setProperty("java.rmi.server.codebase","http://8.25.100.18/clases/"); //file:///f:\\redes2\\RMI\\RMI2
