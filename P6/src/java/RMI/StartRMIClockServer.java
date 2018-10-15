@@ -13,9 +13,9 @@ public class StartRMIClockServer extends UnicastRemoteObject{
         try {
             java.rmi.registry.LocateRegistry.createRegistry(1099);
             
-            System.setProperty("java.rmi.server.hostname", "localhost");
+            System.setProperty("java.rmi.server.hostname", "8.12.0.109");
             
-            ImplSyncClock clk_sync = new ImplSyncClock(0); 
+            ImplSyncClock clk_sync = new ImplSyncClock(100); 
             SyncClockInterface stub = (SyncClockInterface) UnicastRemoteObject.exportObject(clk_sync, 0);
             LocateRegistry.getRegistry().bind( "ServerSyncClock" , stub ) ;
             

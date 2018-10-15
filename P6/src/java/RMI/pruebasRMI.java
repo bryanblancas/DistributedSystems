@@ -8,7 +8,8 @@ import java.util.logging.Logger;
 
 public class pruebasRMI {
     public static void main(String [] args){
-        RMIClockClient a = new RMIClockClient("localhost", "ServerSyncClock");
+        System.out.println("HOLA");
+        RMIClockClient a = new RMIClockClient("8.12.0.133", "ServerSyncClock");
         try {
             a.setConexion();
         } catch (RemoteException | NotBoundException ex) {
@@ -16,7 +17,7 @@ public class pruebasRMI {
         }
         try{
             System.out.println(a.getReloj());
-            a.setReloj(10);
+            a.setReloj(200);
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException ex) {

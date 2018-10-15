@@ -45,25 +45,28 @@ public class indexAjax extends  HttpServlet {
         
         
         RMIClockClient al = new RMIClockClient("localhost", "ServerSyncClock");
+        RMIClockClient al2 = new RMIClockClient("8.12.0.112", "ServerSyncClock");
         try {
             al.setConexion();
+            al2.setConexion();
         } catch (RemoteException | NotBoundException ex) {
             System.out.println("indexajax no se pudo conectar a server syncclock");
         }
-         String hora = Integer.toString(al.getReloj());
-         
-        //obtener la hora local, y mandar a llamar a setclock, después mandar la peticiónde registrar tirada
-       
         int idcart =Integer.parseInt( a.get(0));
-        al.setDataRecv(hora, idcart, id);
-        al.registrarTirada();
-        /*try {        
+        int hora_local = al.getReloj();
+        al2.setReloj(hora_local);
+        String hora = Integer.toString(hora_local);
+        
+        al2.setDataRecv(hora, idcart, id);
+        al2.registrarTirada();
+        
+        try {        
             tiradaDB tdb = new tiradaDB(hora, idcart,id);
             tdb.registrarTirada();
         } catch (SQLException ex) {
             Logger.getLogger(indexAjax.class.getName()).log(Level.SEVERE, null, ex);
         }
-        */
+        
         if(h<=50){
             response.setContentType("text/plain");
             response.getWriter().write("<img src='imagenes/"+a.get(1)+"'>"+h);
