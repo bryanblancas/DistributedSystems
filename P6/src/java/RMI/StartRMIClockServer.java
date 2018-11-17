@@ -1,4 +1,3 @@
-
 package RMI;
 
 import java.rmi.AlreadyBoundException;
