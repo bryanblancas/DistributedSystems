@@ -14,7 +14,7 @@ public class StartServer extends UnicastRemoteObject{
         try {
             java.rmi.registry.LocateRegistry.createRegistry(1099);
             
-            System.setProperty("java.rmi.server.hostname", "10.0.0.8");
+            System.setProperty("java.rmi.server.hostname", "8.12.0.109");
             
             ImplServerInterface s = new ImplServerInterface();
             ServerInterface stub = (ServerInterface) UnicastRemoteObject.exportObject(s, 0);

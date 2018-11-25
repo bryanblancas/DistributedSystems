@@ -5,6 +5,8 @@ import General.Client_RMI;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -104,6 +106,18 @@ public class UI extends javax.swing.JFrame {
             
             elegirip();
             System.out.println(dir);
+           /*InetAddress inet;
+            try {
+                inet = InetAddress.getByAddress(new byte[] { 8, 12, 0,(byte) 50});
+                System.out.println("Sending Ping Request to " + inet);
+    System.out.println(inet.isReachable(1099) ? "Host is reachable" : "Host is NOT reachable");
+
+            } catch (UnknownHostException ex) {
+                Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    */
             Client_RMI crmi = new Client_RMI(dir,"Server");
             
             try {
@@ -125,6 +139,7 @@ public class UI extends javax.swing.JFrame {
     private void btn_pedirCartaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pedirCartaActionPerformed
         elegirip();
         System.out.println(dir);
+        
         Client_RMI crmi = new Client_RMI(dir,"Server");
         try {
             crmi.setConexion();
