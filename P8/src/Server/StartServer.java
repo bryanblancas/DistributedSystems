@@ -12,13 +12,13 @@ public class StartServer extends UnicastRemoteObject{
     
     public static void main(String [] args) throws AlreadyBoundException, IOException{   
               
-        IsAlive a = new IsAlive("localhost", 8888);
+        IsAlive a = new IsAlive("8.12.0.10", 8888);
         a.start();
 
         try {
             java.rmi.registry.LocateRegistry.createRegistry(1099);
             
-            System.setProperty("java.rmi.server.hostname", "localhost");
+            System.setProperty("java.rmi.server.hostname", "8.12.0.10");
             
             ImplServerInterface s = new ImplServerInterface();
             ServerInterface stub = (ServerInterface) UnicastRemoteObject.exportObject(s, 0);

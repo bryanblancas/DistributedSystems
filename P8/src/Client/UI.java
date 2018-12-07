@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class UI extends javax.swing.JFrame {
@@ -84,8 +85,6 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Pide una carta");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,7 +99,7 @@ public class UI extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtField_user, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addComponent(btn_registrar)))
                 .addGap(58, 58, 58))
         );
@@ -115,7 +114,7 @@ public class UI extends javax.swing.JFrame {
                 .addComponent(btn_pedirCarta)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(332, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,7 +156,7 @@ public class UI extends javax.swing.JFrame {
             int idcart = Integer.parseInt(a.get(0));
             String nombrecart = a.get(1);
             
-            jLabel1.setText(nombrecart);
+            jLabel1.setIcon(new ImageIcon("imagenes/"+nombrecart));
             
             Calendar calendario = Calendar.getInstance();
             int hrs_act =calendario.get(Calendar.HOUR_OF_DAY);
